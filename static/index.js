@@ -1,14 +1,16 @@
-
 document.getElementById('convert-button').addEventListener('click', async () => {
-    const bsonInput = document.getElementById('bson-input').value;
-    await fetch('http://localhost:7071/api/bsonConverter', {
+    const bsonInput = document.getElementById('text-input').value;
+    await fetch(keys.endpoint, {
         method: "POST",
         body: bsonInput,
         mode: 'cors',
-    }).then(resp => {
-        document.getElementById('json-output').value = resp.body;
-
+        headers: {
+            "x-functions-key": keys.functionKey,
+        }
+    }).then(resp => resp.json())
+      .then(data => {
+        document.getElementById('text-output').value = data.keyPhrases.join('\n');
     });
 });
 
-document.getElementById('bson-input').value = String.raw`\u0016\u0000\u0000\u0000\u0002hello\u0000\u0006\u0000\u0000\u0000world\u0000\u0000`;
+document.getElementById('text-input').value = 'I really enjoy going on climbing trips'

@@ -105,3 +105,4 @@ dist
 .vscode/
 .keys.sh
 local.settings.json
+static/keys.js

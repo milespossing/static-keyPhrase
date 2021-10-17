@@ -5,7 +5,7 @@ Azure functions, and Azure Cognative Services
 
 ## Project outline
 
-The static site
+The Static Site
 
 Azure functions
 
